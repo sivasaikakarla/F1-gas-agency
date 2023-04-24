@@ -1,0 +1,47 @@
+<html>
+    <head>
+     
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-c5wRJ/YFtGedrLmc5Qq7Bz9HJ1pIP+HXcYMYg/NGV7Oxsf+CTbnV7h+Z0zTKV7Qf9XJlZGKjYtr5w5w5FtRbMw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://kit.fontawesome.com/f19af38efd.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="manageemployee.css">
+        
+    </head>
+    <body>
+        <%- include('adminnavbar'); -%>
+        <div>
+            <table>
+                <tr>
+                <th>Id</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Area Name</th>
+                <th>status</th>
+                </tr>
+                <% emp.forEach(function(employ){ %>
+                <tr>
+                <td><%= employ.employeId %></td>
+                <td><%= employ.phn %></td>
+                <td><%= employ.email %></td>
+                <td><%= employ.deliveryArea %></td>
+                <td><%= employ.approveStatus %></td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+        <div class="form-container">
+            <form action="/manageemployee" method="post">
+              <label for="Id">Id</label><br>
+              <input type="text" id="id" name="employeeId" placeholder="Enter EmployeeId Id"><br>
+              <br>
+              <input type="submit" value="Approve">
+            </form>
+          </div>    
+          
+          
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,196 @@
+/* .nav-img{
+    height: 50px;
+    width: auto;
+    margin-left: 5%;
+} */
+
+.navbar{
+    height: 100px;
+    background-color: #003366;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.navbar-ul-links{
+    display: flex;
+    margin-right: auto;
+    margin-left: 5%;
+}
+
+ul{
+    list-style: none;
+}
+
+.navbar-li-links{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    transition: 0.2s ease-out;
+}
+
+.navbar-li-links:hover{
+    background-color: #2e5d8d;
+    transform: scale(1.1);
+    border-radius: 6px;
+}
+
+.nav-creds{
+    margin-right: 5%;
+    color: white;
+}
+
+.navbar-main-div-links{
+    margin-right: 70px;
+}
+
+.nav-cred-links{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    /* margin-left: 15px; */
+    margin-right: 10px;
+    transition: 0.2s ease-out;
+}
+
+.nav-cred-links-2{
+   
+}
+
+.nav-cred-links:hover{
+    background-color: #2e5d8d;
+    transform: scale(1.1);
+    border-radius: 6px;
+}
+
+.header{
+    color: white;
+    background-color: #2e5d8d;
+    height: 550px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+   padding-right: 40px;
+
+   /* margin-bottom: 100px; */
+}
+
+.header-content{
+    margin-top: 15%;
+    margin-left: 10%;
+}
+
+.header-img{
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header-text{
+    margin-top: 10%;
+    margin-right: 10%;
+}
+
+.section-1{
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #003366;
+    /* margin-bottom: 100px; */
+}
+
+.section-div-1{
+    text-align: center;
+}
+
+.section-img{
+    border-radius: 40%;
+    width: 350px;
+}
+
+.section-heading{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.section-btn{
+    font-size: 20px;
+}
+
+.collab-div{
+    height: 500px;
+    text-align: center;
+    /* background-color: #2e5d8d;
+    color: white; */
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.collab-heading{
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.collab-text{
+    padding: 10px 20px 30px 30px;
+}
+
+.collab-img{
+    border-radius: 50%;
+}
+
+/* testimonials */
+
+#testimonials{
+	text-align: center;
+	background-color: #003366;
+	color: white;
+    
+}
+
+.testimonial-img{
+	width: 10%;
+	border-radius: 200%;
+	margin: 20px;
+}
+
+#press{
+	background-color: #fefdfd;
+	text-align: center;
+	padding-bottom: 3%;
+}
+
+.press-logo{
+	width: 15%;
+	margin: 20px 20px 50px;
+}
+
+.carousel-item{
+	padding: 7% 15%;
+}
+
+.tabs{
+    /* background-color: rgb(10, 9, 9); */
+}
+
+/* footer */
+
+.footer{
+    color: white;
+    background-color: #2e5d8d;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+
+.footer-div-1 {
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+}
+
+.footer-icons{
+    margin: 20px 30px;
+    color: white;
+}

@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel = "stylesheet" href="pendingcomplaints.css">
+    </head>
+    <body>
+
+      <%- include('adminnavbar'); -%>
+
+    <div style="text-align:center;padding:5px 0px;color:black">
+        <h1>Pending Complaints</h1>
+    </div>
+
+    <div>
+
+
+
+    <table>
+        <tr>
+          <th>Complaint Id</th>
+          <th>Name</th>
+          <th>Area</th>
+          <th>Mobile</th>
+          <th>status</th>
+        </tr>
+        <% complaint.forEach(function(comp){ %>
+        <tr>
+          <td><%= comp.complaintId %></td>
+          <td><%= comp.personname %></td>
+          <td><%= comp.personArea %></td>
+          <td><%= comp.personphn %></td>
+          
+          <td><%= comp.status %></td>
+        </tr>
+        <% }) %>
+    </table>
+</div>
+<div class="form-container">
+    <form action="/pendingcomplaints" method="post">
+      <label for="Id">Id</label><br>
+      <input type="text" id="id" name="complaintId" placeholder="Enter complaint Id"><br>
+      <br>
+      <input type="submit" value="Approve">
+    </form>
+  </div>    
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    </body>
+</html>

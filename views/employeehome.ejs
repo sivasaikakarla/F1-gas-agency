@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="employeehome.css">
+    </head>
+    <body>
+        <nav>
+            <ul class="topnav" id ="dropdownClick">
+                <li><a href="#">Gas Agency</a></li>
+                <li class="topnav-right"><a href="/">Logout</a></li>
+                
+            </ul>
+        </nav>
+        <div style="text-align:center;padding:2px 0px;color:black">
+            <h1>Pending orders</h1>
+        </div>
+        <div>
+            <table>
+                <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>phone No</th>
+                <th>Area</th>
+                <th> Expected Delivery Time</th>
+                <th>status</th>
+
+                </tr>
+                <% orders.forEach(function(order){ %>
+                <tr>
+                <td><%= order.personname %></td>
+                <td><%= order.orderId %></td>
+                <td><%= order.personphn %></td>
+                <td><%= order.personArea %></td>
+                <td><%= order.deliveryDate %></td>
+                <td><%= order.status %></td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+        <div class="form-container">
+            <form action="/employeehome" method="post">
+              <label for="Id">Id</label><br>
+              <input type="text" id="id" name="orderId" placeholder="Enter Order Id"><br>
+              <br>
+              <input type="submit" value="Approve">
+            </form>
+          </div>
+          
+        
+          <div class="row" style="text-align: center; background-color: rgb(74, 74, 222); height: 150px;">
+            <div class="col-lg-6">
+                <p class="pxyz">View Account Details</p>
+            </div>
+            <div class="col-lg-6">
+                <a class="xyz" href="/changeemployeedetails">Details</a>
+            </div>
+          </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        
+    </body>
+</html>

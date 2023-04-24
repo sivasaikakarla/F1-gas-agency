@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="usernavbar.css">
+   
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+        <script src="https://kit.fontawesome.com/f19af38efd.js" crossorigin="anonymous"></script>
+</head>
+
+<nav>
+    <ul class="topnav" id ="dropdownClick">
+        <li><a href="/userlogin">Home</a></li>
+        <li><a href="/booking">Book a Cylinder</a></li>
+        <li><a href="/complaints">Complaint</a></li>
+        <li><a href="#">Help & Support</a></li>
+        <li class = "topnav-right"><div class="dropdown">
+            <button class="dropbtn">Account
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/mydetails">Details</a>
+              <a href="/prevorders">Booking History</a>
+              <a href ="/prevcomplaints">Complaint History</a>
+              <a href="/">Log out</a>
+            </div>
+          </div> 
+        </li>
+
+    
+        
+        <li class = "dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
+    </ul>
+</nav>

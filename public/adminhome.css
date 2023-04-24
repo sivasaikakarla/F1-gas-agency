@@ -1,0 +1,60 @@
+body{
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.navbar2{
+    height: 80px;
+    background-color: #003366;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.heading{
+    color: white;
+    text-decoration: none;
+    margin-left: 10%;
+    font-size: 2rem;
+}
+
+.dropdown-link{
+    text-decoration: none;
+    color: white;
+    margin-right: 10%;
+}
+
+.dropdown-div{
+    margin-right: 10%;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    margin-left:370px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #003366;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #ddd; 
+  }

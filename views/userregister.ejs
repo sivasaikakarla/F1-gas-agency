@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LPG Gas Connection Registration Form</title>
+    <link rel = "stylesheet" href="connection.css">
+    <script src="js/signup.js"></script>
+    <link rel="stylesheet" href="nav.css">
+   
+  </head>
+  <body>
+
+    <%- include('nav'); -%>
+
+
+    <div class="form-container">
+        <img src="https://www.logolynx.com/images/logolynx/08/08a477ae7b1c085a9c7ba80da26b1d46.jpeg" alt="LPG Cylinder" class="image">
+
+        <!-- name="myform" id="sign-in-form" onsubmit="return validateform()" -->
+      <form name="myform1" id="myform1" action="/userregister"  method="post">
+        <h1 style="margin-bottom: 0;">Registration Form</h1>
+        
+        <div class="total">
+       <div class="left">
+        <h2>Your Details:</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span class = "invalid-form" id = "invalid-name"></span>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <span class = "invalid-form" id = "invalid-email"></span>
+
+      <label for="mobile">Mobile:</label>
+      <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+      <span class = "invalid-form" id = "invalid-mobile"></span>
+
+        <label for="aadhar">Aadhar Number:</label>
+        <input type="text" id="aadhar" name="aadhar" pattern="[0-9]{12}" required>
+        <span class = "invalid-form" id = "invalid-aadhar"></span>
+
+        <label for="pass">Password:</label>
+        <input type="password" id = "pass" name="pass" required>
+        <span class = "invalid-form" id ="invalid-pass"></span>
+
+        <label for="cpassword">Confirm-Password:</label>
+        <input type="password" id = "cpassword" name="cpassword" required>
+        <span class = "invalid-form" id ="invalid-cp"></span>
+      </div>
+
+        <!-- <hr> -->
+        <div class="right">
+        <h2>Address Details:</h2>
+        <label for="locationtype">Area:</label>
+        <select id="locationtype" name="locationtype" required>
+            <option value ="" disabled selected >Select your area</option>
+          <option value="Area1">Area1</option>
+          <option value="Area2">Area2</option>
+          <option value="Area3">Area3</option>
+          <option value="Area4">Area4</option>
+          <option value="Area5">Area5</option>
+
+          
+        </select>
+        <label for="houseno">House No:</label>
+        <input type="text" id="houseno" name="houseno" required>
+
+        <label for="streetname">Street Name:</label>
+        <input type="text" id="streetname" name="streetname" required>
+
+        <label for="city">City:</label>
+        <select id="city" name="city" >
+            <option value ="" >Kurnool</option>
+           </select>
+
+           <label for="district">District</label>
+           <select id="district" name="district" >
+               <option value ="" >Kurnool</option>
+              </select>
+   
+
+        <label for="state">State:</label>
+        <select id="state" name="state">
+          <option value ="" >Andhra Pradesh</option>
+         </select>
+        
+
+      <label for="pincode">Pincode:</label>
+      <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}"required>
+
+    </div>
+  </div>
+      
+      <input  type="submit" value="Regsiter"> 
+
+      
+    </form>
+    </div>
+   
+    <script>
+      
+      var form=document.getElementById('myform1');
+       form.addEventListener('submit',function (e){
+        
+         if(nameValidation()==false  || EmailValidation()==false || PValidation()==false || CPValidation()==false || MobileValidation() == false || AadharValidation() == false){
+           e.preventDefault();  
+           
+         }
+         else {
+           console.log("Sign in successfull");
+         
+         }
+         });
+        </script>
+
+  </body>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LPG Login Page</title>
+	<link rel = stylesheet href="login.css">
+	<link rel="stylesheet" href="nav.css">
+
+<body>
+
+	<%- include('nav'); -%>
+
+
+	<div class="container">
+       
+		<h2>Admin Login</h2>
+		<!--  name="myform" id ="f" -->
+		<form name="adminform" method="post" action="/adminlogin" > 
+			<label for="Id">Id</label><br>
+			<input type="text" id="id" name="adminId" placeholder="Enter your Id"><br>
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" placeholder="Enter your password">
+<br>
+			<input type="submit" value="Login">
+            
+		</form>
+	</div>
+</body>
+</html>

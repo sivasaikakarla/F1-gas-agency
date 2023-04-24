@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="prevorders.css">
+    <link rel="stylesheet" href="usernavbar.css">
+  </head>
+  
+  <body>
+    <nav>
+      <ul class="topnav" id ="dropdownClick">
+          <li><a href="#">Home</a></li>
+          <li><a href="/booking">Book a Cylinder</a></li>
+          <li><a href="/complaints">Complaint</a></li>
+          <li><a href="#">Help & Support</a></li>
+          <li class = "topnav-right"><div class="dropdown">
+              <button class="dropbtn"><%= Username %>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="/changeuserdetails">My Account</a>
+                <a href="/prevorders">Booking History</a>
+                <a href ="/prevcomplaints">Complaint History</a>
+                <a href="/">Log out</a>
+              </div>
+            </div> 
+          </li>
+          
+          <li class = "dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
+      </ul>
+  </nav>
+    <div>
+      <table>
+        <tr>
+          <th>Complaint Id</th>
+          <th>Type</th>
+          <th>status</th>
+        </tr>
+        <% complaint.forEach(function(comp){ %>
+        <tr>
+          <td><%= comp.complaintId %></td>
+          <td><%= comp.complainttype %></td>
+          <td><%= comp.status %></td>
+        </tr>
+        <% }) %>
+    </table>
+    </div>
+    <script>
+      function dropdownMenu(){
+          var x = document.getElementById("dropdownClick");
+          if(x.className === "topnav"){
+              x.className += " responsive";
+          }else {
+             x.className = "topnav";
+          }
+      }
+          </script>
+  </body>

@@ -1,0 +1,53 @@
+
+
+.complaint{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.form-body{
+    width: 55vw;
+    display: inline-block;
+    background-color:#003366;
+    padding: 30px 80px;
+}
+
+.form-body h2{
+    color:white;
+    font-weight: bolder;
+}
+
+.btn{
+    background-color: tomato;
+    color: white;
+}
+
+textarea{
+    resize: none;
+}
+
+image{
+    display: inline;
+}
+
+.image img{
+    display: inline;
+    width: 45vw;
+    height: 100vh;
+}
+
+
+
+input{
+    height: 50px;
+}
+
+select{
+    height: 50px;
+}
+
+label{
+font-weight: 200;
+color:white;
+}

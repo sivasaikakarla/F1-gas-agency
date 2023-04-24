@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+     
+}
+h1 {
+    text-align: center;
+}
+.btn-add {
+    margin-top: 25px;
+}
+.carousel-title {
+    text-align: center;
+}
+.item-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.item-image {
+    flex: 0 0 200px;
+}
+.item-content {
+    flex: 1;
+    margin-left: 20px;
+}
+.item-content h3 {
+    margin-top: 0;
+}
+.form-container {
+    margin-top: 50px;
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
+label, input[type="text"], input[type="submit"] {
+    display: block;
+    margin-bottom: 10px;
+}
+input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+.mycontaier{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+
+.mycontent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.item-image{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.search-container {
+    float: right;
+    border-color: black;
+  }
+  
+  .search-container input[type=text] {
+    float: left;
+    padding: 6px;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 17px;
+    border: none;
+    width: 150px;
+  }
+  
+  .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 10px;
+    margin-right: 50px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-container button:hover {
+    background: #ccc;
+  }
+
+  nav{
+    width:100%;
+    margin:0;
+    display:block;
+    font-size: larger;
+  
+  }
+  
+  nav ul{
+    background-color: #003366;
+    overflow:hidden;
+    margin:0;
+    padding:20px;
+  
+  }
+  
+  ul.topnav li{
+    list-style: none;
+    float: left;
+    
+  }
+  
+  ul.topnav li.topnav-right{
+    float:right;
+  }
+  
+  ul.topnav li a{
+    display:block;
+    text-decoration:none;
+    min-height:16px;
+    text-align:center;
+    padding:14px;
+    text-transform:uppercase;
+    color:white;
+  }
+  
+  ul.topnav li a:hover {
+    background-color: blue;
+    color:white;
+  }

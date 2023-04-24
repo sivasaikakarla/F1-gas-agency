@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.navbar2{
+    height: 80px;
+    background-color: #003366;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.heading{
+    color: white;
+    text-decoration: none;
+    margin-left: 10%;
+    font-size: 2rem;
+}
+
+.dropdown-link{
+    text-decoration: none;
+    color: white;
+    margin-right: 10%;
+}
+
+.dropdown-div{
+    margin-right: 10%;
+}

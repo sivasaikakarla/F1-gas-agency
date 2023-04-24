@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500&display=swap');
+body{
+    background-color: aliceblue;
+    font-family: 'Schibsted Grotesk', sans-serif;
+}
+.total
+{
+  display: flex;
+  column-gap: 20px;
+}
+
+.form-container {
+border: 2px solid #ddd;
+border-radius: 5px;
+background-color: #003366;
+padding: 20px;
+padding-right:20px;
+max-width: 1000px;
+margin: 0 auto;
+color:white;
+display:flex;
+
+}
+
+.image {
+    flex: 1;
+    max-width: 400px;
+    max-height: 500px;
+    margin-right: 20px;
+    margin-top: 170px;
+  }
+
+h1 {
+margin-top: 0;
+margin-bottom: 40px;
+
+
+
+}
+h2 {
+margin-top: 30px;
+margin-bottom: 20px;
+
+
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select {
+display: block;
+width: 100%;
+padding: 15px;
+padding-right: 150px; 
+margin-bottom: 20px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+font-size: 16px;
+background-color:#add8e6;
+
+}
+input[type="submit"] {
+background-color: rgb(225, 40, 40);
+color: white;
+padding: 10px 20px;
+width: 300px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size:26px;
+margin-left: 190px;
+
+}
+input[type="submit"]:hover {
+background-color: rgb(196, 54, 3);
+}
+
+label{
+font-size:16px;
+}
