@@ -28,6 +28,7 @@
             
             <table>
               <tr>
+                <th>Name</th>
                 <th>Order Id</th>
                 <th>Quantity</th>
                 <th>Expected Date</th>
@@ -35,6 +36,7 @@
               </tr>
               <% orders.forEach(function(order){ %>
               <tr>
+                <td><%= order.personname %></td>
                 <td><%= order.orderId %></td>
                 <td><%= order.quantity %></td>
                 <td><%= order.deliveryDate %></td>

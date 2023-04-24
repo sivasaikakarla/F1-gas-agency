@@ -15,7 +15,7 @@
         
     <div class="search-container">
         <form action="/employeeorders" method="post">
-          <input type="text" placeholder="Search..." name="name">
+          <input type="text" placeholder="Employee name" name="name">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>
@@ -28,6 +28,7 @@
             
             <table>
               <tr>
+                <th>Area</th>
                 <th>Order Id</th>
                 <th>Quantity</th>
                 <th>Expected Date</th>
@@ -35,6 +36,7 @@
               </tr>
               <% orders.forEach(function(order){ %>
               <tr>
+                <td><%= order.personArea %></td>
                 <td><%= order.orderId %></td>
                 <td><%= order.quantity %></td>
                 <td><%= order.deliveryDate %></td>
