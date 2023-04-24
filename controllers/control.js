@@ -195,7 +195,7 @@ exports.userlogin=(req,res)=>{
         const emailinput = req.body.email;
         const password=req.body.password;
     
-        User.findOne({email:emailinput})
+        User.findOne({email:emailinput})  
         .then(function(foundUser){
             if(foundUser){
                 if(foundUser.password===password){
