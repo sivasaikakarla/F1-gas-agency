@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +14,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "mongoose": "^7.0.3",
+    "nodemailer": "^6.9.1",
     "nodemon": "^2.0.22"
   }
 }

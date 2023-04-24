@@ -6,6 +6,16 @@ const Admin =require('../models/admin');
 const User = require('../models/user');
 const Deliveryboy=require('../models/deliveryboy');
 
+var nodemailer = require('nodemailer');
+
+var mailTransporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'kakarlasivasai043@gmail.com',
+        pass: 'svlfvkjzhatftelm'
+    }
+});
+
 
 const obj={value:'xyz',name:'Account'};
 
@@ -610,3 +620,34 @@ exports.findemployeeorders=(req,res)=>{
     });
 
 }
+
+exports.getannouncements = (req,res) => {
+    res.render("announcements");
+}
+
+exports.sendannouncements = (req, res, next) => {
+    const { subject, message } = req.body;
+    User.find()
+        .then((users) => {
+            const emailList = users.map(user => user.email);
+            const mailOptions = {
+                from: 'kakarlasivasai043@gmail.com',
+                to: emailList.join(','),
+                subject: subject,
+                text: message
+            };
+            mailTransporter.sendMail(mailOptions)
+                .then((info) => {
+                    console.log(`Email sent: ${info.response}`);
+                    res.redirect('/adminlogin');
+                })
+                .catch((error) => {
+                    console.log(`Error occurred while sending email: ${error}`);
+                    res.redirect('/announcements');
+                });
+        })
+        .catch((error) => {
+            console.log(`Error occurred while finding users: ${error}`);
+            res.redirect('/announcements');
+        });
+  };
