@@ -1,6 +1,6 @@
 
 const Order=require('../models/order');
-
+const Connection = require('../models/connection');
 const Complaint =require('../models/complaint');
 const Admin =require('../models/admin');
 const User = require('../models/user');
@@ -400,6 +400,30 @@ exports.booking=(req,res)=>{
     });
 };
 
+exports.newConnection=(req,res)=>{
+    const personname=req.body.name;
+    const currentDate = new Date();
+    const connectionId = currentDate.getTime().toString() + Math.floor(Math.random() * 10).toString();
+
+    const newConnection=new Connection({
+        personname:req.body.name,
+        personmail:req.body.email,
+        personphn:req.body.phone,
+        personAddress:req.body.address,
+        personArea:req.body.dropdown,
+        conectionId:connectionId,
+    });
+
+    newConnection.save()
+    .then(() => {
+        res.render("userhome",{Username:personname});
+    })
+    .catch((err) => { 
+        console.log(err.message);
+        res.send("Error while saving the order");
+     });
+ };
+
 exports.complaints=(req,res)=>{
     const personname=req.body.name;
     const currentDate = new Date();
@@ -431,6 +455,12 @@ exports.getbooking=(req,res)=>{
     })
    
 };
+
+exports.getnewconnection=(req,res)=>{
+ User.findOne({email:obj.value}).then(result=>{
+res.render("newconnection",{USER:result});
+ })
+ };
 
 exports.getmydetails=(req,res)=>{
     User.findOne({email:obj.value}).then(result=>{

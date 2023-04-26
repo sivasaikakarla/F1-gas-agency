@@ -1,0 +1,35 @@
+<head>
+	<title>New Connection</title>
+	<link rel="stylesheet" type="text/css" href="newconnection.css">
+	<link rel="stylesheet" href="usernavbar.css">
+</head>
+<body>
+	<nav>
+        <ul class="topnav" id ="dropdownClick">
+            <li><a href="#">Home</a></li>
+            <li><a href="/booking">Booking</a></li>
+            <li><a href="/newconnection">Connection</a></li>
+            <li><a href="/complaints">Complaint</a></li>
+            <li class = "topnav-right"><div class="dropdown">
+                <button class="dropbtn"><%= USER.name %>
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/changeuserdetails">My Account</a>
+                  <a href="/prevorders">Booking History</a>
+                  <a href ="/prevcomplaints">Complaint History</a>
+                  <a href="/">Log out</a>
+                </div>
+              </div> 
+            </li>
+
+        
+            
+            <li class = "dropdownIcon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
+        </ul>
+    </nav> 
+	
+	<div class="container">
+        <div class = "img-container">
+        <img src="https://www.logolynx.com/images/logolynx/08/08a477ae7b1c085a9c7ba80da26b1d46.jpeg" alt="LPG Cylinder" class="image">
+        </div>
