@@ -5,6 +5,7 @@ const Complaint =require('../models/complaint');
 const Admin =require('../models/admin');
 const User = require('../models/user');
 const Deliveryboy=require('../models/deliveryboy');
+const Blog=require('../models/blog');
 
 var nodemailer = require('nodemailer');
 
@@ -653,5 +654,32 @@ exports.sendannouncements = (req, res, next) => {
   };
 
   exports.getblog = (req,res)=>{
-    res.render("blog");
+    // res.render("blog");
+    Blog.find()
+    .then(function(blogs){
+        res.render("blog",{blogposts:blogs})
+    })
   };
+
+  exports.blogpost =(req,res)=>{
+    const newBlog=new Blog({
+        h1:req.body.h1,
+        p1:req.body.p1,
+        p2:req.body.p2,
+        imgsrc:req.body.imgsrc
+    });
+
+    newBlog.save()
+    .then(() => {
+        console.log("newblog saved");
+        res.render("addingblog")
+    })
+    .catch((err) => {
+        console.log(err.message);
+        console.log("error");
+    });
+  }
+
+  exports.addingblog = (req,res)=>{
+    res.render("addingblog");
+  }
