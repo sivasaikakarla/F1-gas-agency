@@ -20,8 +20,6 @@ const routes =  require("./routes/router");
 
 app.use(routes);
 
-console.log("hello");
-
 // const obj={value:'xyz'};
 
 // function updateObj(x){
