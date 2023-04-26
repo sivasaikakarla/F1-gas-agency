@@ -48,6 +48,7 @@ router.get('/employeeorders',Controller.getemployeeorders);
 router.post('/employeeorders',Controller.findemployeeorders);
 router.post('/announcements',Controller.sendannouncements);
 router.get('/announcements',Controller.getannouncements);
+router.get('/blog',Controller.getblog);
 
 module.exports = router
 

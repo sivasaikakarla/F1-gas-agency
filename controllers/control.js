@@ -651,3 +651,7 @@ exports.sendannouncements = (req, res, next) => {
             res.redirect('/announcements');
         });
   };
+
+  exports.getblog = (req,res)=>{
+    res.render("blog");
+  };
