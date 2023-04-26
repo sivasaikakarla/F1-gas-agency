@@ -20,7 +20,10 @@ const routes =  require("./routes/router");
 
 app.use(routes);
 
+<<<<<<< HEAD
 console.log("hello");
+=======
+>>>>>>> 8ff4cce69653a6847dfa3a9925ef8158b913957c
 
 // const obj={value:'xyz'};
 
