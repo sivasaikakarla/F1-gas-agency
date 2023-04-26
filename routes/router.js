@@ -31,7 +31,8 @@ router.post('/complaints',Controller.complaints);
 router.get('/booking',Controller.getbooking);
 router.get('/mydetails',Controller.getmydetails);
 router.get('/complaints',Controller.getcomplaints);
-
+router.post('/newconnection',Controller.newConnection);
+router.get('/newconnection',Controller.getnewconnection);
 router.get('/changeuserdetails',Controller.getchangeuserdetails);
 router.get('/changeemployeedetails',Controller.getchangeemployeedetails);
 router.post('/updateuser',Controller.updateuser);
