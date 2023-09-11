@@ -1,181 +1,280 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="userdetails.css" />
 
-<head>
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="userdetails.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    
-    <script src="https://kit.fontawesome.com/f19af38efd.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    
-</head>
+    <script
+      src="https://kit.fontawesome.com/f19af38efd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
-
+  <body>
     <%- include('adminnavbar'); -%>
 
     <div class="search-container">
-        <form action="/userdetails" method="post">
-          <input type="text" placeholder="Search..." name="name">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-
-    <div style="text-align:center; background-color: #003366;padding:10px 0px;color:white">
-        <h1>User Details</h1>
+      <form action="/userdetails" method="post">
+        <input type="text" placeholder="Search..." name="name" />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
     </div>
-    
+
+    <div
+      style="
+        text-align: center;
+        background-color: #003366;
+        padding: 10px 0px;
+        color: white;
+      "
+    >
+      <h1>User Details</h1>
+    </div>
+
+    <% if (typeof user !== 'undefined' && user.length > 0) { %>
     <div class="mycontainer">
-        <hr/>
+      <hr />
+      <div class="">
+        <div class=""></div>
         <div class="">
-            <div class=""></div>
-            <div class="">
-                <% user.forEach(function(users){ %>
-                <div class="item-container row">
-                    <div class="item-image col-6">
-                        <img src="images/user.jpg" class="img-thumbnail item-image"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOj4E2GdAN_d3ArtA4N84cmta91XiOvLMaFEaOXRJ8bA&s"
-                            style="width:200px" alt="Can not display">
-                    
-                            <div class="item-content col-6 mycontent">
-                                <div>
-                                    <div>
-                                        <h3>
-                                            <%=users.name%>
-                                        </h3>
-                                    </div>
-                                    <div> <b>Mobile No: </b>
-                                        <%=users.mobileNo%>
-                                    </div>
-                                    <div> <b>Email: </b>
-                                        <%= users.email%>
-                                    </div>
-                                    <div> <b>Aadhar: </b>
-                                        <%= users.aadhar%>
-                                    </div>
-                                    <div><b>DeliveryArea: </b>
-                                        <%= users.location%>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                    </div>
-                    <div class="row" style="width: 300px; margin-top: 20px; margin-left: 10px;">
-                    <div class="col-6">
-                        <button class="about-view packages-btn btn btn-primary"
-                            data-toggle="modal" data-target="#my-<%=users._id%>">
-                            Edit
-                        </button>
+          <% user.forEach(function(users){ %>
+          <div class="item-container row">
+            <div class="item-image col-6">
+              <img
+                src="images/user.jpg"
+                class="img-thumbnail item-image"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOj4E2GdAN_d3ArtA4N84cmta91XiOvLMaFEaOXRJ8bA&s"
+                style="width: 200px"
+                alt="Can not display"
+              />
 
-                        <div class="modal fade" id="my-<%=users._id%>" role="dialog">
-                            <div class="modal-dialog modal-lg">
-                    
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div  class="hidden">
-                                            <form method="POST" action="/updateuser">
-                                                <div class="form-group">
-                                                    <label for="name">UserName</label>
-                                                    <input type="text" class="form-control" id="name" name="name"
-                                                        value="<%=users.name%>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="button-type">Email:</label>
-                                                        <select name="buttontype" id="button-type" class="form-control">
-                                                            <option value="<%=users.email%>"><%=users.email%></option>
-                                                        </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="phnnum">Mobile Number</label>
-                                                    <input type="tel" class="form-control" id="phnnum" name="phnnum"
-                                                        value="<%=users.mobileNo%>">
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label for="adhaarno">AdhaarNo</label>
-                                                    <input type="text" class="form-control" id="adhaarno" name="adhaarno"
-                                                        value="<%=users.aadhar%>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="address">Address</label>
-                                                    <input type="text" class="form-control" id="address" name="address"
-                                                        value="<%=users.location%>">
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default"
-                                            data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                    
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-6">
-                        <button class="about-view packages-btn btn btn-primary"
-                            data-toggle="modal" data-target="#xy-<%=users._id%>">
-                            Delete
-                        </button>
-
-                        <div class="modal fade" id="xy-<%=users._id%>" role="dialog">
-                            <div class="modal-dialog modal-lg">
-                    
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div  class="hidden">
-                                            <form method="POST" action="/deleteuser">
-                                                
-                                                <div class="form-group">
-                                                    <label for="button-type">Email:</label>
-                                                        <select name="buttontype" id="button-type" class="form-control">
-                                                            <option value="<%=users.email%>"><%=users.email%></option>
-                                                        </select>
-                                                </div>
-                                                
-                                                <div class="form-group">
-                                                    <label for="address">Address</label>
-                                                    <input type="text" class="form-control" id="address" name="address"
-                                                        value="<%=users.location%>">
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Confirm Delete</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default"
-                                            data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                    
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+              <div class="item-content col-6 mycontent">
                 <div>
-                    <hr/>
+                  <div>
+                    <h3><%=users.name%></h3>
+                  </div>
+                  <div>
+                    <b>Mobile No: </b>
+                    <%=users.mobileNo%>
+                  </div>
+                  <div>
+                    <b>Email: </b>
+                    <%= users.email%>
+                  </div>
+                  <div>
+                    <b>Aadhar: </b>
+                    <%= users.aadhar%>
+                  </div>
+                  <div>
+                    <b>DeliveryArea: </b>
+                    <%= users.location%>
+                  </div>
                 </div>
-            <%})%>
-            </div>/
+              </div>
+            </div>
+            <div
+              class="row"
+              style="width: 300px; margin-top: 20px; margin-left: 10px"
+            >
+              <div class="col-6">
+                <button
+                  class="about-view packages-btn btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#my-<%=users._id%>"
+                >
+                  Edit
+                </button>
+
+                <div class="modal fade" id="my-<%=users._id%>" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                        >
+                          &times;
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="hidden">
+                          <form method="POST" action="/updateuser">
+                            <div class="form-group">
+                              <label for="name">UserName</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                name="name"
+                                value="<%=users.name%>"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="button-type">Email:</label>
+                              <select
+                                name="buttontype"
+                                id="button-type"
+                                class="form-control"
+                              >
+                                <option value="<%=users.email%>">
+                                  <%=users.email%>
+                                </option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="phnnum">Mobile Number</label>
+                              <input
+                                type="tel"
+                                class="form-control"
+                                id="phnnum"
+                                name="phnnum"
+                                value="<%=users.mobileNo%>"
+                              />
+                            </div>
+
+                            <div class="form-group">
+                              <label for="adhaarno">AdhaarNo</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="adhaarno"
+                                name="adhaarno"
+                                value="<%=users.aadhar%>"
+                              />
+                            </div>
+                            <div class="form-group">
+                              <label for="address">Address</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                                name="address"
+                                value="<%=users.location%>"
+                              />
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                              Save Changes
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-default"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <button
+                  class="about-view packages-btn btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#xy-<%=users._id%>"
+                >
+                  Delete
+                </button>
+
+                <div class="modal fade" id="xy-<%=users._id%>" role="dialog">
+                  <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                        >
+                          &times;
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="hidden">
+                          <form method="POST" action="/deleteuser">
+                            <div class="form-group">
+                              <label for="button-type">Email:</label>
+                              <select
+                                name="buttontype"
+                                id="button-type"
+                                class="form-control"
+                              >
+                                <option value="<%=users.email%>">
+                                  <%=users.email%>
+                                </option>
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="address">Address</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="address"
+                                name="address"
+                                value="<%=users.location%>"
+                              />
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                              Confirm Delete
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-default"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <hr />
+          </div>
+          <%})%>
         </div>
+        /
+      </div>
     </div>
-     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-</body>
+    <% } else if (alert) { %>
+    <div class="alert alert-warning" role="alert"><%= alert %></div>
+    <% } %>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

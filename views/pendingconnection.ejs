@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="employeehome.css">
+    </head>
+    <body>
+        <%- include('adminnavbar'); -%>
+        <div style="text-align:center;padding:2px 0px;color:black">
+            <h1>Pending connections</h1>
+        </div>
+        <div>
+            <table>
+                <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>phone No</th>
+                <th>Area</th>
+                <th>status</th>
+
+                </tr>
+                <% connections.forEach(function(connection){ %>
+                <tr>
+                <td><%= connection.personname %></td>
+                <td><%= connection.connectionId %></td>
+                <td><%= connection.personphn %></td>
+                <td><%= connection.personArea %></td>
+                <td><%= connection.status %></td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+        <div class="form-container">
+            <form action="/pendingconnection" method="post">
+              <label for="Id">Id</label><br>
+              <input type="text" id="id" name="connectionId" placeholder="Enter connection Id"><br>
+              <br>
+              <input type="submit" value="Complete">
+            </form>
+          </div>
+          
+        
+          
+
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        
+    </body>
+</html>

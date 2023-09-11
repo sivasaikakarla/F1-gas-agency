@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
 	<title>New Connection</title>
 	<link rel="stylesheet" type="text/css" href="newconnection.css">
@@ -33,3 +35,35 @@
         <div class = "img-container">
         <img src="https://www.logolynx.com/images/logolynx/08/08a477ae7b1c085a9c7ba80da26b1d46.jpeg" alt="LPG Cylinder" class="image">
         </div>
+		
+		<form action="/newconnection" method="post">
+			<h1>New Connection</h1>
+			<label for="name">Name:</label>
+			<% USER %>
+			<input type="text" id="name" name="name" value= "<%= USER.name %>"required>
+
+			<label for="phone">Phone:</label>
+			<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" value="<%= USER.mobileNo %>" required>
+
+			<label for="email">Email:</label>
+			<input type="email" id="id" name="email" value="<%= USER.email %>"required>
+
+			<label for="address">Address:</label>
+			<textarea id="address" name="address" required></textarea>
+             
+            <select name="dropdown" id = "dropdown">
+                <option value ="" disabled selected >Select your area</option>
+                <option value = "Area1">Area1</option>
+                <option value = "Area2">Area2</option>
+                <option value = "Area3">Area3</option>
+                <option value = "Area4">Area4</option>
+                <option value = "Area5">Area5</option>
+            </select>
+			<br><br>
+			<input type="submit" value="Book Now">
+		</form>
+	</div>
+
+	
+</body>
+</html>

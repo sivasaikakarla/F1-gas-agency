@@ -28,17 +28,18 @@
 
         <label for="dob">Date of Birth:</label>
         <input type="date" id="dob" name="dob" required>
+        <span class = "invalid-form" id = "invalid-dob"></span>
 
         <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="text" id="email" name="email" required>
       <span class = "invalid-form" id = "invalid-email"></span>
 
       <label for="mobile">Mobile:</label>
-      <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+      <input type="tel" id="mobile" name="mobile"  required>
       <span class = "invalid-form" id = "invalid-mobile"></span>
 
         <label for="aadhar">Aadhar Number:</label>
-        <input type="text" id="aadhar" name="aadhar" pattern="[0-9]{12}" required>
+        <input type="text" id="aadhar" name="aadhar"  required>
         <span class = "invalid-form" id = "invalid-aadhar"></span>
 
         <label for="pass">Password:</label>
@@ -101,19 +102,36 @@
     </div>
    
     <script>
-      
-      var form=document.getElementById('myform1');
-       form.addEventListener('submit',function (e){
-        
-         if(nameValidation()==false  || EmailValidation()==false || PValidation()==false || CPValidation()==false || MobileValidation() == false || AadharValidation() == false){
-           e.preventDefault();  
+
+var form = document.getElementById('myform1');
+        form.addEventListener('submit', function (e) {
            
-         }
-         else {
-           console.log("Sign in successfull");
-         
-         }
-         });
-        </script>
+
+            if (nameValidation() && EmailValidation() && PValidation() && CPValidation() && MobileValidation() && AadharValidation() && DobValidation()) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/userregister', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            document.getElementById('registrationStatus').textContent = xhr.responseText;
+                            
+                        } else {
+                            document.getElementById('registrationStatus').textContent = 'Error occurred while processing registration.';
+                        }
+                    }
+                };
+
+                var formData = new FormData(form);
+                xhr.send(formData);
+            }
+            else{
+                e.preventDefault()
+            }
+        });
+    </script>
+      
+      
 
   </body>

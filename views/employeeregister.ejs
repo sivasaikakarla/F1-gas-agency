@@ -1,74 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Reg Form</title>
-	<link rel="stylesheet" type="text/css" href="employeeregister.css">
+    <title>Reg Form</title>
+    <link rel="stylesheet" type="text/css" href="employeeregister.css">
     <link rel="stylesheet" href="nav.css">
-
     <script src="js/signup.js"></script>
 </head>
 <body>
-
-    
-
-
-	<div class="container">
+    <div class="container">
         <form action="/employeeregister" method="post" id="form1" name="form1">
-		<h1>Delivery Boy Registration form</h1>
-		
-			<label for="name">Name:</label>
-			<input type="text" id="name" name="name" required>
-            <span class = "invalid-form" id = "invalid-name"></span>
+        <h1>Delivery Boy Registration form</h1>
+         <h3 style="display: none;text-align: center;" id="success_message">Registration Successfull</h3>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="invalid-form" id="invalid-name"></span>
 
-			<label for="phone">Phone:</label>
-			<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
-            <span class = "invalid-form" id = "invalid-mobile"></span>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <span class="invalid-form" id="invalid-mobile"></span>
             <br>
 
             <label for="email">Email:</label>
-            <input type = "email" id="email" name = "email" required>
-            <span class = "invalid-form" id = "invalid-email"></span>
+            <input type="text" id="email" name="email" required>
+            <span class="invalid-form" id="invalid-email"></span>
+            <span class="email-validation-message" id="email-validation-message"></span>
             <br>
             
             <label for="area">Select your area for delivery </label>
-            <select name="dropdown" id = "dropdown">
-                <option value = "Area1">Area1</option>
-                <option value = "Area2">Area2</option>
-                <option value = "Area3">Area3</option>
-                <option value = "Area4">Area4</option>
-                <option value = "Area5">Area5</option>
+            <select name="dropdown" id="dropdown">
+                <option value="Area1">Area1</option>
+                <option value="Area2">Area2</option>
+                <option value="Area3">Area3</option>
+                <option value="Area4">Area4</option>
+                <option value="Area5">Area5</option>
             </select>
 
             <label for="pass">Password:</label>
-        <input type="password" id = "pass" name="pass" required>
-        <span class = "invalid-form" id ="invalid-pass"></span>
-       
+            <input type="password" id="pass" name="pass" required>
+            <span class="invalid-form" id="invalid-pass"></span>
 
-        <label for="cpassword">Confirm-Password:</label>
-        <input type="password" id = "cpassword" name="cpassword" required>
-        <span class = "invalid-form" id ="invalid-cp"></span>
+            <label for="cpassword">Confirm-Password:</label>
+            <input type="password" id="cpassword" name="cpassword" required>
+            <span class="invalid-form" id="invalid-cp"></span>
         
-			
-<br><br>
-			<input type="submit" value="Submit">
+            <br><br>
+            <input type="submit" value="Submit">
             <p style="color: aliceblue;"><a href="/"> <- Home</a></p>
-		</form>
-	</div>
+        </form>
+    </div>
+    <div id="registrationStatus"></div>
+<script>
+    var form = document.getElementById('form1');
+form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent form submission for now
 
-    <script>
-      
-        var form=document.getElementById('form1');
-         form.addEventListener('submit',function (e){
-          
-           if(nameValidation()==false  || EmailValidation()==false || PValidation()==false || CPValidation()==false || MobileValidation() == false || AadharValidation() == false){
-             e.preventDefault();  
-             
-           }
-           else {
-             console.log("Sign in successfull");
-           
-           }
-           });
-          </script>
+    if (nameValidation() && EmailValidation() && PValidation() && CPValidation() && PhoneValidation()) {
+        // Check if the email is already in the database
+        var email = document.getElementById('email').value;
+        console.log(email)
+        var encodedEmail = encodeURIComponent(email);
+
+fetch('/checkemail', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: 'email=' + encodedEmail, // Send the URL-encoded email
+})
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.exists)
+            if (data.exists) {
+                console.log('email already exists')
+                document.getElementById('email-validation-message').innerHTML = 'Email already exists';
+            } else {
+                // If email doesn't exist, submit the form
+document.getElementById('success_message').style.display='block'
+                 form.submit()
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+});
+</script>   
 </body>
 </html>
